@@ -1,5 +1,6 @@
 import turtle
 import random #We'll need this later in the lab
+import time
 
 turtle.tracer(1,0) #This helps the turtle move more smoothly
 
@@ -10,7 +11,7 @@ turtle.setup(SIZE_X, SIZE_Y) #Curious? It's the turtle window
 turtle.penup()
 
 SQUARE_SIZE = 20
-START_LENGTH = 10
+START_LENGTH = 5
 
 #Initialize lists
 pos_list = []
@@ -94,7 +95,8 @@ def right():
     global direction
     direction=RIGHT
     print("You pressed the left key!")
-    
+
+
 #2. Make functions down(), left(), and right() that change direction
 ####WRITE YOUR CODE HERE!!
 
@@ -194,12 +196,15 @@ def move_snake():
         food_pos.pop(food_ind) #Remove eaten food position
         food_stamps.pop(food_ind) #Remove eaten food stamp
         print("You have eaten the food!")
-    
+    else:
+        pos_list.pop(0)
+        old_stamp = stamp_list.pop(0)
+        snake.clearstamp(old_stamp)
     #HINT: This if statement may be useful for Part 8
-
-    old_stamp = stamp_list.pop(0)
-    snake.clearstamp(old_stamp)
-    pos_list.pop(0)
+    
+        
+    
+    
     if len(food_stamps) <= 6 :
     	make_food()
     if snake.pos() in pos_list[:-1]:
@@ -233,7 +238,9 @@ for this_food_pos in food_pos:
     food.goto(this_food_pos)
     new_stamp = food.stamp()
     food_stamps.append(new_stamp)
-
+    
+turtle.bgcolor("yellow")
+snake.color("purple")
 
 move_snake()    
     
