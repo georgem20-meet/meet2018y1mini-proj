@@ -4,12 +4,21 @@ import time
 
 turtle.tracer(1,0) #This helps the turtle move more smoothly
 
-SIZE_X=800
-SIZE_Y=500
+SIZE_X=900
+SIZE_Y=900
+turtle.tracer(1,0)
 turtle.setup(SIZE_X, SIZE_Y) #Curious? It's the turtle window  
-                             #size. 
-turtle.penup()
 
+turtle.shape("blank")
+turtle.speed(5)
+turtle,penup()
+turtle.goto(-350,-350)
+turtle.pendown()
+tuerle.pensize(5)
+for i in range(4)
+    turtle.forward(700)
+    turtle.left(90)
+UP_EDGE
 SQUARE_SIZE = 20
 START_LENGTH = 5
 
