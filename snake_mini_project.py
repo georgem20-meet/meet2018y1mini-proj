@@ -6,19 +6,21 @@ turtle.tracer(1,0) #This helps the turtle move more smoothly
 
 SIZE_X=900
 SIZE_Y=900
-turtle.tracer(1,0)
-turtle.setup(SIZE_X, SIZE_Y) #Curious? It's the turtle window  
+turtle.setup(SIZE_X, SIZE_Y) #Curious? It's the turtle window
 
-turtle.shape("blank")
-turtle.speed(5)
-turtle,penup()
-turtle.goto(-350,-350)
-turtle.pendown()
-tuerle.pensize(5)
-for i in range(4)
-    turtle.forward(700)
-    turtle.left(90)
-UP_EDGE
+
+border = turtle.clone()
+border.shape("blank")
+border.speed(5)
+border.penup()
+border.goto(-350,-350)
+border.pendown()
+border.pensize(5)
+for i in range(4):
+    border.forward(700)
+    border.left(90)
+
+
 SQUARE_SIZE = 20
 START_LENGTH = 5
 
@@ -30,7 +32,9 @@ food_stamps = []
 
 #Set up positions (x,y) of boxes that make up the snake
 snake = turtle.clone()
-snake.shape("square")
+snake.shape("circle")
+snake.penup()
+
 
 #Hide the turtle object (it's an arrow - we don't need to see it)
 turtle.hideturtle()
@@ -79,10 +83,10 @@ RIGHT = 3
 ####WRITE YOUR CODE HERE!!
 
 direction = UP
-UP_EDGE = 250
-DOWN_EDGE = -250
-RIGHT_EDGE = 400
-LEFT_EDGE = -400
+UP_EDGE = 330
+DOWN_EDGE = -330
+RIGHT_EDGE = 330
+LEFT_EDGE = -330
 
 def up():
     global direction #snake direction is global (same everywhere)
@@ -123,10 +127,10 @@ def make_food():
     #The screen positions go from -SIZE/2 to +SIZE/2
     #But we need to make food pieces only appear on game squares
     #So we cut up the game board into multiples of SQUARE_SIZE.
-    min_x=-int(SIZE_X/2/SQUARE_SIZE)+1
-    max_x=int(SIZE_X/2/SQUARE_SIZE)-1
-    min_y=-int(SIZE_Y/2/SQUARE_SIZE)-1
-    max_y=int(SIZE_Y/2/SQUARE_SIZE)+1
+    min_x=-int(660/2/SQUARE_SIZE)
+    max_x=int(660/2/SQUARE_SIZE)
+    min_y=-int(660/2/SQUARE_SIZE)
+    max_y=int(660/2/SQUARE_SIZE)
     
     #Pick a position that is a random multiple of SQUARE_SIZE
     food_x = random.randint(min_x,max_x)*SQUARE_SIZE
@@ -224,13 +228,16 @@ def move_snake():
 
 
 
-turtle.register_shape("trash.gif") #Add trash picture
+turtle.register_shape("ham.gif") #Add trash picture
                       # Make sure you have downloaded this shape 
                       # from the Google Drive folder and saved it
                       # in the same folder as this Python script
 
 food = turtle.clone()
-food.shape("trash.gif") 
+food.shape("ham.gif")
+food.penup()
+
+
 
 #Locations of food
 food_pos = [(100,100), (-100,100), (-100,-100), (100,-100)]
